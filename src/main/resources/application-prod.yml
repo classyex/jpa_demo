@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/jpa_demo?useUnicode=true&allowMultiQueries=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 3000
+      filters: stat,wall
+      aop-patterns: cn.classyex.learn.service.*
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: druid
+        login-password: druid
+        allow: 127.0.0.1
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+logging:
+  file:
+    path: logs/jpademo.log
+  level:
+    com.classyex.learn.*: INFO
+    org.springframework.web: INFO
