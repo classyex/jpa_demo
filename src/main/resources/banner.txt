@@ -1,0 +1,7 @@
+
+ _  _  ____  _  _
+( \/ )(  __)( \/ )
+ )  /  ) _)  )  (
+(__/  (____)(_/\_)
+
+:: Spring Boot Remote :: ${spring-boot.formatted-version}
